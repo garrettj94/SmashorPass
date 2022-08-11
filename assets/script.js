@@ -1,14 +1,14 @@
 var addCharacterBtn = document.querySelector("#generate");
-var smashVariable = 0;
-var passVariable = 0;
-var smashBtn = document.querySelector("smash");
-var passBtn = document.querySelector("pass");
+var watchVariable = 0;
+var doNotWatchVariable = 0;
+var watchBtn = document.querySelector("smash");
+var doNotWatchBtn = document.querySelector("pass");
 var charEl = document.querySelector("#character");
 var charImgEl = document.querySelector("#characterimg");
 var charnameEl = document.querySelector("#charactername");
 var charsourceEl = document.querySelector("#charactersrc");
-var cIndex = 0
-let Character = class {
+var cIndex = 0 
+let choice = class {
     constructor(img, name, origins){
         this.img = img;
         this.name = name;
@@ -42,7 +42,7 @@ function addtoList() {
     var originsinput = null;
 }
 
-addCharacterBtn.addEventListener("click",addtoList);
+addGenreBtn.addEventListener("click",addtoList);
 
 function startGame(){
     watchBtn.addEventListener("click", addwatch);
