@@ -45,16 +45,16 @@ function addtoList() {
 addCharacterBtn.addEventListener("click",addtoList);
 
 function startGame(){
-    smashBtn.addEventListener("click", addSmash);
-    passBtn.addEventListener("click", addPass);
+    watchBtn.addEventListener("click", addwatch);
+    doNotWatchBtn.addEventListener("click", adddoNotWatch);
     displayQuestion();
 }
-function addSmash(){
-    smashVariable++;
+function addwatch(){
+    watchVariable++;
     nextQuestion();
 }
-function addPass(){
-    passVariable++;
+function adddoNotWatch(){
+    doNotWatchVariable++;
     nextQuestion();
 }
 
@@ -63,8 +63,8 @@ function displayQuestion() {
   charImgEl = currCharacter.img; 
   charnameEl.textContent = currCharacter.name;
   charsourceEl.textContent = currCharacter.origins;
-  smashBtn.addEventListener("click", addSmash);
-  passBtn.addEventListener("click", addPass);
+  watchBtn.addEventListener("click", addwatch);
+  doNotWatchBtn.addEventListener("click", adddoNotWatch);
 }
 
 function nextQuestion() {
@@ -79,3 +79,4 @@ function nextQuestion() {
 function endGame(){
 
 }
+
