@@ -1,82 +1,92 @@
-var addCharacterBtn = document.querySelector("#generate");
 var watchVariable = 0;
 var doNotWatchVariable = 0;
-var watchBtn = document.querySelector("smash");
-var doNotWatchBtn = document.querySelector("pass");
-var charEl = document.querySelector("#character");
-var charImgEl = document.querySelector("#characterimg");
-var charnameEl = document.querySelector("#charactername");
-var charsourceEl = document.querySelector("#charactersrc");
-var cIndex = 0 
+var watchBtn = document.getElementById("#watchBtn");
+var doNotWatchBtn = document.getElementById("#dontWatchBtn");
+var dropDownBtn = document.querySelector("#dropBtn");
+var posterImgEl = document.getElementById("#posterImg");
+var mIndex = 0 
+var startBtn = document.getElementById("#startBtn")
+
 let choice = class {
-    constructor(img, name, origins){
-        this.img = img;
+    constructor(posterImg, name, genre){
+        this.posterImg = posterImg;
         this.name = name;
-        this.origins = origins;
+        this.genre = genre;
     }
     getimg(){
-        return this.img;
+        return this.posterimg;
     }
     getname(){
         return this.name;
     }
     getorigins(){
-        return this.origins;
+        return this.genre;
     }
 };
 
-let characterList = [];
 
-function addtoList() {
-    var fileInput = document.getElementById('fileInput');
-    var nameinput = document.getElementById('nameInput');
-    var originsinput = document.getElementById('originsInput');
-    if (fileInput.isDefaultNamespace.length === 1) {
-     var newCharacter = Character(fileInput, nameinput, originsinput)
-     characterList.push(newCharacter);   
-    } else {
-        alert('please select one image file for this to work')
-    }
-    var fileInput = null;
-    var nameinput = null;
-    var originsinput = null;
+function pickyourposion() {
+    
+    // if (fileInput.isDefaultNamespace.length === 1) {
+    //  var newCharacter = Character(fileInput, nameinput, originsinput)
+    //  characterList.push(newCharacter);   
+    // } else {
+    //     alert('please select one image file for this to work')
+    // }
+
 }
 
-addGenreBtn.addEventListener("click",addtoList);
 
-function startGame(){
+
+function genre(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+
+startBtn.addEventListener("click", timetovote);
+
+function timetovote(){
     watchBtn.addEventListener("click", addwatch);
     doNotWatchBtn.addEventListener("click", adddoNotWatch);
-    displayQuestion();
+    displayoption();
 }
 function addwatch(){
     watchVariable++;
-    nextQuestion();
+    nextOption();
 }
 function adddoNotWatch(){
     doNotWatchVariable++;
-    nextQuestion();
+    nextOption();
 }
 
-function displayQuestion() {
-    var currCharacter = characterList[cIndex]; 
-  charImgEl = currCharacter.img; 
-  charnameEl.textContent = currCharacter.name;
-  charsourceEl.textContent = currCharacter.origins;
+function displayoption() {
+    // var movielist = movielist[mIndex]; 
+  Img = posterImgEl; 
+//   movieName = ;
+  genre.textContent = currCharacter.origins;
   watchBtn.addEventListener("click", addwatch);
   doNotWatchBtn.addEventListener("click", adddoNotWatch);
-}
+};
 
-function nextQuestion() {
-  if(cIndex != characterList.length - 1) {
-      cIndex++;
-      displayQuestion();
-  } else {
-          endGame();
-  }
-}
+// function nextQuestion() {
+//   if(cIndex != characterList.length - 1) {
+//       cIndex++;
+//       displayQuestion();
+//   } else {
+//           endGame();
+//   }
+// }
 
-function endGame(){
+// function endGame(){
 
-}
+// }
 
