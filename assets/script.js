@@ -5,8 +5,8 @@ var doNotWatchBtn = document.getElementById("#dontWatchBtn");
 var dropDownBtn = document.querySelector("#dropBtn");
 var posterImgEl = document.getElementById("#posterImg");
 var mIndex = 0
-var startBtn = document.getElementById("#startBtn")
-var url = 'http://www.omdbapi.com/?apikey=2ba6647b&'
+var startBtn = document.querySelector("#startBtn");
+var url = ' http://www.omdbapi.com/?i=tt3896198&apikey=2ba6647b';
 
 
 let choice = class {
@@ -47,7 +47,10 @@ function genre(event) {
 }
 
 
-startBtn.addEventListener("click", timetovote);
+startBtn.addEventListener("click", function(event){
+  event.preventDefault();
+  timetovote();
+});
 
 function timetovote() {
   watchBtn.addEventListener("click", addwatch);
