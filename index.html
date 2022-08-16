@@ -7,18 +7,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="./assets/style.css">
 </head>
+
 <body class="w-6/12 container mx-auto">
     <!-- Info Box -->
     <div class="info_box container mx-auto bg-white">
         <div><span class="font-bold underline text-center">Welcome to What do you want to watch?</span></div>
+
         <div>
             <div>Description: use this site to see a list of movies and watch or don't watch </div>
             <div class="dropdown">
-                <button onclick="listofMovies()" class="dropbtn">Dropdown</button>
+                <button onclick="genre()" class="dropbtn">Dropdown</button>
                 <div id="myDropdown" class="dropdown-content">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+                  <a href="#">Comedy</a>
+                  <a href="#">Horror</a>
+                  <a href="#">Action</a>
                 </div>
               </div>
         </div>
@@ -26,8 +28,10 @@
             <button class="border-solid border-2 rounded-md bg-black text-white mx-auto" id="startBtn">Start</button>
         </div>
     </div>
+
     <!-- Quiz Box -->
     <div class="bg-white">
+
         <header>
             <div class="text-center" id="posterImg">Poster</div>
         </header>
