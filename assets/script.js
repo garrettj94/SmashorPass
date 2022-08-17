@@ -6,7 +6,9 @@ var dropDownBtn = document.querySelector("#dropBtn");
 var posterImgEl = document.getElementById("#posterImg");
 var mIndex = 0
 var startBtn = document.querySelector("#startBtn");
-var url = ' http://www.omdbapi.com/?i=tt3896198&apikey=2ba6647b';
+var url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US';
+var APIKey = 'd4ee677d19edc2e96425eb11e4079011';
+var hide = document.getElementById('#hide');
 
 
 let choice = class {
@@ -30,10 +32,7 @@ let choice = class {
 
 function genre(event) {
   document.getElementById("myDropdown").classList.toggle("show");
-  fetch(url)
-  .then(function(respnse){
-    return respnse.json()
-  })
+  
   if (!event.url.matches('.dropbtn')) {
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
@@ -47,33 +46,63 @@ function genre(event) {
 }
 
 
+
+
 startBtn.addEventListener("click", function(event){
   event.preventDefault();
   timetovote();
+  console.log(startBtn)
 });
+
+
+// function showStuff(id, text, btn) {
+//   document.getElementById(id).style.display = 'block';
+//   // hide the lorem ipsum text
+//   document.getElementById(text).style.display = 'none';
+//   // hide the link
+//   btn.style.display = 'none';
+// }
+
+// document.getElementById(id).style.visibility = "hidden";
+// document.getElementById(id).style.visibility = "visible";
 
 function timetovote() {
   watchBtn.addEventListener("click", addwatch);
   doNotWatchBtn.addEventListener("click", adddoNotWatch);
   displayoption();
-}
-function addwatch() {
-  watchVariable++;
-  nextOption();
-}
-function adddoNotWatch() {
-  doNotWatchVariable++;
-  nextOption();
-}
 
-function displayoption() {
-  // var movielist = movielist[mIndex]; 
-  Img = posterImgEl;
-  //   movieName = ;
-  genre.textContent = currCharacter.origins;
-  watchBtn.addEventListener("click", addwatch);
-  doNotWatchBtn.addEventListener("click", adddoNotWatch);
+  function addwatch() {
+    watchVariable++;
+    nextOption();
+  };
+
+
+  function adddoNotWatch() {
+    doNotWatchVariable++;
+    nextOption();
+  };
+
+  function adddoNotWatch() {
+    doNotWatchVariable++;
+    nextOption();
+  };
+
+  function displayoption() {
+    // var movielist = movielist[mIndex]; 
+    Img = posterImgEl;
+    //   movieName = ;
+    genre.textContent = currCharacter.origins;
+    watchBtn.addEventListener("click", addwatch);
+    doNotWatchBtn.addEventListener("click", adddoNotWatch);
+  };
+  
+
+
+
 };
+
+
+
 
 // function nextQuestion() {
 //   if(cIndex != characterList.length - 1) {
