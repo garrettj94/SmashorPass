@@ -9,19 +9,12 @@ var startBtn = document.querySelector("#startBtn");
 var url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US';
 var APIKey = 'd4ee677d19edc2e96425eb11e4079011';
 var hide = document.getElementById('#hide');
+var posterURl = 'https://api.themoviedb.org/3/configuration?api_key=d4ee677d19edc2e96425eb11e4079011'
 
 
 let choice = class {
-  constructor(posterImg, name, genre) {
-    this.posterImg = posterImg;
-    this.name = name;
+  constructor( genre) {
     this.genre = genre;
-  }
-  getimg() {
-    return this.posterimg;
-  }
-  getname() {
-    return this.name;
   }
   getorigins() {
     return this.genre;
@@ -50,7 +43,7 @@ function genre(event) {
 
 startBtn.addEventListener("click", function(event){
   event.preventDefault();
-  timetovote();
+  timetovote(); 
   console.log(startBtn)
 });
 
@@ -63,12 +56,11 @@ startBtn.addEventListener("click", function(event){
 //   btn.style.display = 'none';
 // }
 
-// document.getElementById(id).style.visibility = "hidden";
-// document.getElementById(id).style.visibility = "visible";
+
+
 
 function timetovote() {
-  watchBtn.addEventListener("click", addwatch);
-  doNotWatchBtn.addEventListener("click", adddoNotWatch);
+  // document.getElementById(hide).style.visibility = "visible";
   displayoption();
 
   function addwatch() {
@@ -91,9 +83,9 @@ function timetovote() {
     // var movielist = movielist[mIndex]; 
     Img = posterImgEl;
     //   movieName = ;
-    genre.textContent = currCharacter.origins;
-    watchBtn.addEventListener("click", addwatch);
-    doNotWatchBtn.addEventListener("click", adddoNotWatch);
+    // genre.textContent = ;
+    // watchBtn.addEventListener("click", addwatch);
+    // doNotWatchBtn.addEventListener("click", adddoNotWatch);
   };
   
 
