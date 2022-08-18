@@ -8,11 +8,20 @@ var mIndex = 0
 var startBtn = document.querySelector("#startBtn");
 var genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US';
 // var APIKey = 'd4ee677d19edc2e96425eb11e4079011';
-var hide = document.getElementById('#hide');
+// var hide = document.getElementById('#hide');
 var posterURl = 'https://api.themoviedb.org/3/configuration?api_key=d4ee677d19edc2e96425eb11e4079011'
 
-
-
+function poster() {
+  fetch(posterURl)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data)
+    console.log(data.change_keys)
+  })
+}
+poster();
 
 
 function genre() {
@@ -22,20 +31,24 @@ function genre() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.genres[i])
+      console.log(data.genres)
       for (var i = 0; i < data.genres.length; i++) {
         console.log(data.genres[i])
 
         var genre = data.genres[i].name;
+        var hello = "hello world"
         var link = document.createElement('a');
-        var drop = document.getElementById('myDropdown')        
+        var drop = document.getElementById('myDropdown')
+        // link.textContent = hello;
+        
+        // link.href = data.html_url;
         link.append(genre);
         drop.appendChild(link);
+        
 
 
 
       }
-      return;
     })
 
   document.getElementById("myDropdown").classList.toggle("show");
@@ -51,7 +64,7 @@ function genre() {
 
          
         }
-          return;
+
 
       }
     }
@@ -64,7 +77,7 @@ genre();
 startBtn.addEventListener("click", function (event) {
   event.preventDefault();
   timetovote();
-  document.getElementById(hide).style.visibility = ("show");
+  document.getElementById("hide").style.display = "block";
   console.log("working")
 });
 
