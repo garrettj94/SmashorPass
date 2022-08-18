@@ -27,19 +27,15 @@ function genre() {
         console.log(data.genres[i])
 
         var genre = data.genres[i].name;
-        var hello = "hello world"
         var link = document.createElement('a');
-        var drop = document.getElementById('myDropdown')
-        // link.textContent = hello;
-        
-        // link.href = data.html_url;
+        var drop = document.getElementById('myDropdown')        
         link.append(genre);
         drop.appendChild(link);
-        
 
 
 
       }
+      return;
     })
 
   document.getElementById("myDropdown").classList.toggle("show");
@@ -55,7 +51,7 @@ function genre() {
 
          
         }
-
+          return;
 
       }
     }
@@ -68,8 +64,8 @@ genre();
 startBtn.addEventListener("click", function (event) {
   event.preventDefault();
   timetovote();
-  document.getElementById(hide).style.visibility = "show";
-  console.log(startBtn)
+  document.getElementById(hide).style.visibility = ("show");
+  console.log("working")
 });
 
 

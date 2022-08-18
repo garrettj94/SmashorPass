@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,21 +10,22 @@
 </head>
 
 <body class="w-6/12 container mx-auto">
+    <div><span class="font-bold underline text-center bg-white">Welcome to What do you want to watch?</span></div>
     <!-- Info Box -->
-    <div class="info_box container mx-auto bg-white">
-        <div><span class="font-bold underline text-center">Welcome to What do you want to watch?</span></div>
+    <div class="container mx-auto bg-white mt-10" id="infoBox">
+
 
         <div>
-            <div>Description: use this site to see a list of movies and watch or don't watch </div>
+            <div class="p-10">Description: use this site to see a list of movies and watch or don't watch </div>
             <div class="dropdown">
                 <button onclick="genre()" class="dropbtn">Dropdown</button>
                 <div id="myDropdown" class="dropdown-content">
-                  <!-- <a href="#"></a> -->
+                    <!-- <a href="#"></a> -->
                 </div>
-              </div>
+            </div>
         </div>
-        <div class="buttons">
-            <button class="border-solid border-2 rounded-md bg-black text-white mx-auto" id="startBtn">Start</button>
+        <div class="buttons grid">
+            <button class="border-solid border-2 rounded-md bg-black text-white place-content-center" id="startBtn">Start</button>
         </div>
     </div>
 
@@ -35,18 +37,18 @@
         </header>
         <section>
             <div>
-            <p class="text-center" id="filmName">Name</p>
+                <p class="text-center" id="filmName">Name</p>
             </div>
             <div>
-            <p class="border-solid border-4 bg-grey-500 text-center" id="genre">Genre</p>
+                <p class="border-solid border-4 bg-grey-500 text-center" id="genre">Genre</p>
             </div>
         </section>
         <footer>
             <div class="total_que">
             </div>
             <div class="grid grid-cols-2 grid-rows-1 gap-4">
-             <button class="border-solid rounded-md border-2 bg-green-500" id="watchBtn">Watch</button>
-             <button class="rounded-md border-solid border-2 bg-red-500" id="dontwatchBtn">Don't Watch</button>
+                <button class="border-solid rounded-md border-2 bg-green-500" id="watchBtn">Watch</button>
+                <button class="rounded-md border-solid border-2 bg-red-500" id="dontwatchBtn">Don't Watch</button>
             </div>
         </footer>
     </div>
@@ -55,5 +57,5 @@
 
     <script src="assets/script.js"></script>
 </body>
-</html>
 
+</html>
