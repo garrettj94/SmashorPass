@@ -12,6 +12,7 @@ body {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    margin-bottom: 10px;
   }
   
   .dropbtn:hover, .dropbtn:focus {
@@ -31,6 +32,8 @@ body {
     overflow: auto;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    height: 100px;
+    overflow: auto;
   }
   
   .dropdown-content a {
@@ -38,6 +41,7 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+ 
   }
   
   .dropdown a:hover {background-color: #ddd;}
@@ -46,4 +50,24 @@ body {
 
   #hide {
     display: none;
+  }
+
+  #startBtn:hover {
+    background-color: darkslategray;
+  }
+
+  #watchBtn:hover {
+    background-color: darkgreen;
+    color: white;
+    border: 3px;
+    border-color: black;
+    border-style: solid;
+  }
+
+  #dontwatchBtn:hover {
+    background-color: darkred;
+    color: white;
+    border: 3px;
+    border-color: black;
+    border-style: solid;
   }
