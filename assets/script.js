@@ -22,9 +22,20 @@ function genre() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.genres[0])
+      console.log(data.genres)
       for (var i = 0; i < data.genres.length; i++) {
-        console.log('hello')
+        console.log(data.genres.length)
+
+        var genre = data.genres;
+        var hello = "hello world"
+        var link = document.createElement('a');
+        var drop = document.getElementById('myDropdown')
+        link.textContent = genre;
+        
+        // link.href = data.html_url;
+        link.append(genre);
+        drop.appendChild(link);
+        
 
 
 
@@ -42,13 +53,7 @@ function genre() {
         if (openDropdown.classList.contains('show')) {
           openDropdown.classList.remove('show');
 
-          var genre = data.genres[0];
-          var link = document.querySelectorAll('.dropdown-content');
-          link.textContent = data[i].genres;
-          link.href = data[i].html_url;
-
-          genre.appendChild(genreUrl);
-
+         
         }
 
 
