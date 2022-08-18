@@ -22,15 +22,15 @@ function genre() {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.genres)
+      console.log(data.genres[i])
       for (var i = 0; i < data.genres.length; i++) {
-        console.log(data.genres.length)
+        console.log(data.genres[i])
 
-        var genre = data.genres;
+        var genre = data.genres[i].name;
         var hello = "hello world"
         var link = document.createElement('a');
         var drop = document.getElementById('myDropdown')
-        link.textContent = genre;
+        // link.textContent = hello;
         
         // link.href = data.html_url;
         link.append(genre);
