@@ -2,7 +2,7 @@ var watchVariable = 0;
 var doNotWatchVariable = 0;
 var watchBtn = document.getElementById("#watchBtn");
 var doNotWatchBtn = document.getElementById("#dontWatchBtn");
-var dropDownBtn = document.querySelector("#dropBtn");
+var dropDownBtn = document.querySelector(".dropBtn");
 var posterImgEl = document.getElementById("#posterImg");
 var mIndex = 0
 var startBtn = document.querySelector("#startBtn");
@@ -75,13 +75,12 @@ function genre() {
 }
 
 
-
-
 startBtn.addEventListener("click", function (event) {
   event.preventDefault();
   timetovote();
   document.getElementById("hide").style.display = "block";
   console.log("working")
+  document.getElementById("infoBox").style.display = "none";
 });
 
 
