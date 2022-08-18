@@ -25,7 +25,7 @@ poster();
 
 
 function genre() {
-
+  //look up how to undo an element = remove child 
   fetch(genreUrl)
     .then(function (response) {
       return response.json();
@@ -34,6 +34,8 @@ function genre() {
       console.log(data.genres)
       for (var i = 0; i < data.genres.length; i++) {
         console.log(data.genres[i])
+       
+        // "if drop.containt getellid my drop down .remove"
 
         var genre = data.genres[i].name;
         var hello = "hello world"
@@ -49,7 +51,7 @@ function genre() {
 
 
       }
-    })
+    }) 
 
   document.getElementById("myDropdown").classList.toggle("show");
   window.onclick = function (event) {
@@ -61,7 +63,8 @@ function genre() {
         var openDropdown = dropdowns[i];
         if (openDropdown.classList.contains('show')) {
           openDropdown.classList.remove('show');
-
+          // const list = document.getElementById("myDropdown");
+          // list.removeChild(list.firstElementChild);
          
         }
 
@@ -70,7 +73,7 @@ function genre() {
     }
   }
 }
-genre();
+
 
 
 
