@@ -6,44 +6,64 @@ var dropDownBtn = document.querySelector("#dropBtn");
 var posterImgEl = document.getElementById("#posterImg");
 var mIndex = 0
 var startBtn = document.querySelector("#startBtn");
-var url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US';
-var APIKey = 'd4ee677d19edc2e96425eb11e4079011';
+var genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US';
+// var APIKey = 'd4ee677d19edc2e96425eb11e4079011';
 var hide = document.getElementById('#hide');
 var posterURl = 'https://api.themoviedb.org/3/configuration?api_key=d4ee677d19edc2e96425eb11e4079011'
 
 
-let choice = class {
-  constructor( genre) {
-    this.genre = genre;
-  }
-  getorigins() {
-    return this.genre;
-  }
-};
 
 
 
-function genre(event) {
+function genre() {
+
+  fetch(genreUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data.genres[0])
+      for (var i = 0; i < data.genres.length; i++) {
+        console.log('hello')
+
+
+
+      }
+    })
+
   document.getElementById("myDropdown").classList.toggle("show");
-  
-  if (!event.url.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+  window.onclick = function (event) {
+    event.preventDefault();
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+
+          var genre = data.genres[0];
+          var link = document.querySelectorAll('.dropdown-content');
+          link.textContent = data[i].genres;
+          link.href = data[i].html_url;
+
+          genre.appendChild(genreUrl);
+
+        }
+
+
       }
     }
   }
 }
+genre();
 
 
 
-
-startBtn.addEventListener("click", function(event){
+startBtn.addEventListener("click", function (event) {
   event.preventDefault();
-  timetovote(); 
+  timetovote();
+  document.getElementById(hide).style.visibility = "show";
   console.log(startBtn)
 });
 
@@ -60,7 +80,8 @@ startBtn.addEventListener("click", function(event){
 
 
 function timetovote() {
-  // document.getElementById(hide).style.visibility = "visible";
+
+
   displayoption();
 
   function addwatch() {
@@ -87,7 +108,7 @@ function timetovote() {
     // watchBtn.addEventListener("click", addwatch);
     // doNotWatchBtn.addEventListener("click", adddoNotWatch);
   };
-  
+
 
 
 
@@ -113,5 +134,4 @@ function timetovote() {
     //  var newCharacter = Character(fileInput, nameinput, originsinput)
     //  characterList.push(newCharacter);
     // } else {
-    //     alert('please select one image file for this to work')
-    // }
+    //     alert('please select one image file for this to work')    
