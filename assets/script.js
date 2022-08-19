@@ -1,7 +1,7 @@
 var watchVariable = 0;
 var doNotWatchVariable = 0;
 var watchBtn = document.getElementById("watchBtn");
-var doNotWatchBtn = document.getElementById("dontWatchBtn");
+var doNotWatchBtn = document.getElementById("dontwatchBtn");
 var dropDownBtn = document.querySelector("#dropBtn");
 var posterImgEl = document.getElementById("posterImg");
 var mIndex = 0
@@ -68,6 +68,21 @@ function genre (event) {
     }
   }
 }
+function displayoption() {
+  fetch(posterURl)
+  .then(function (response) {
+    return response.json();
+  })
+  // if(genre === genreOfChoice ){
+  .then(function (data) {
+    for (var i = 0; i < data.length; i++) {
+      console.log(data[i]);
+
+    }
+  })
+
+};
+displayoption();
 
 
 
@@ -110,32 +125,7 @@ doNotWatchBtn.addEventListener("click", adddoNotWatch);
 function timetovote() {
  
   displayoption();
-  // addwatch()
-  // adddoNotWatch()
  
-
-
-
-
-  function displayoption() {
-    fetch(posterURl)
-    .then(function (response) {
-      return response.json();
-    })
-    // if(genre === genreOfChoice ){
-    .then(function (data) {
-      for (var i = 0; i < data.images.length; i++) {
-        console.log(data.images[i])
-
-      }
-    })
-  
-
-    
-
-  };
-
-
 
 };
 
