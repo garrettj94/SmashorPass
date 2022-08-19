@@ -93,9 +93,12 @@ startBtn.addEventListener("click", function (event) {
   event.preventDefault();
   timetovote();
   document.getElementById("hide").style.display = "block";
+  document.getElementById("infoBox").style.display = "none";
   console.log("working")
 });
 
+
+watchBtn.addEventListener("click", console.log("working"))
 
 // function showStuff(id, text, btn) {
 //   document.getElementById(id).style.display = 'block';
