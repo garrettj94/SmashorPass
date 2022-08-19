@@ -1,9 +1,9 @@
 var watchVariable = 0;
 var doNotWatchVariable = 0;
-var watchBtn = document.getElementById("#watchBtn");
-var doNotWatchBtn = document.getElementById("#dontWatchBtn");
+var watchBtn = document.getElementById("watchBtn");
+var doNotWatchBtn = document.getElementById("dontWatchBtn");
 var dropDownBtn = document.querySelector("#dropBtn");
-var posterImgEl = document.getElementById("#posterImg");
+var posterImgEl = document.getElementById("posterImg");
 var mIndex = 0
 var startBtn = document.querySelector("#startBtn");
 var genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US';
@@ -15,20 +15,9 @@ var dropbtn = document.querySelector('.dropbtn');
 var genrechoice = "";
 
 
-function poster() {
-  fetch(posterURl)
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data)
-    console.log(data.change_keys)
-  })
-}
-poster();
 
 
-function genre(event) {
+function genre (event) {
   event.preventDefault();
   fetch(genreUrl)
     .then(function (response) {
@@ -55,14 +44,7 @@ function genre(event) {
 
  drop.classList.toggle("show");
   window.onclick = function (event) {
-    // if(drop.hasChildNodes() = true){
-    //     //  for(var i = 0; i < drop.children.length; i++){
-    //     //    drop.removeChild(drop.children[i]);
-    //     //  }
-    //     while(drop.firstChild == true){
-    //       drop.removeChild(drop.firstChild);
-    //     }
-    // }
+
     event.preventDefault();
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -73,7 +55,7 @@ function genre(event) {
           openDropdown.classList.remove('show');
           // const list = document.getElementById("myDropdown");
           // list.removeChild(list.firstElementChild);
-         
+          
         }
 
 
@@ -89,9 +71,12 @@ startBtn.addEventListener("click", function (event) {
   event.preventDefault();
   timetovote();
   document.getElementById("hide").style.display = "block";
+  document.getElementById("infoBox").style.display = "none";
   console.log("working")
 });
 
+
+watchBtn.addEventListener("click", console.log("working"))
 
 // function showStuff(id, text, btn) {
 //   document.getElementById(id).style.display = 'block';
@@ -105,17 +90,17 @@ startBtn.addEventListener("click", function (event) {
 
 
 function timetovote() {
-
-
+ 
   displayoption();
 
   function addwatch() {
+    
     watchVariable++;
     nextOption();
   };
 
 
-  function adddoNotWatch() {
+  function addwatch() {
     doNotWatchVariable++;
     nextOption();
   };
@@ -126,15 +111,25 @@ function timetovote() {
   };
 
   function displayoption() {
-    // var movielist = movielist[mIndex]; 
-    Img = posterImgEl;
-    //   movieName = ;
-    // genre.textContent = ;
-    // watchBtn.addEventListener("click", addwatch);
-    // doNotWatchBtn.addEventListener("click", adddoNotWatch);
+    fetch(posterURl)
+    .then(function (response) {
+      return response.json();
+    })
+    // if(genre === genreOfChoice ){
+    .then(function (data) {
+      for (var i = 0; i < data.images.length; i++) {
+        console.log(data.images[i])
+
+      }
+    })
+  
+
+    
+
   };
 
-
+  // watchBtn.addEventListener("click", addwatch);
+  // doNotWatchBtn.addEventListener("click", adddoNotWatch);
 
 
 };
