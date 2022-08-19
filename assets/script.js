@@ -12,6 +12,9 @@ var genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19
 var posterURl = 'https://api.themoviedb.org/3/configuration?api_key=d4ee677d19edc2e96425eb11e4079011';
 var drop = document.getElementById('myDropdown');
 var dropbtn = document.querySelector('.dropbtn');
+var selectedgenre = document.querySelector('#genre');
+var selectedposter = document.querySelector('#posterImg');
+var selectedname = document.querySelector('#filmName');
 var genrechoice = "";
 
 
@@ -36,6 +39,8 @@ function genre (event) {
           linkEl.addEventListener("click", function(event){
             event.preventDefault();
             genrechoice = event.target.textContent;
+            selectedgenre.append(": ");
+            selectedgenre.append(genrechoice);
           });
           drop.appendChild(linkEl);
         }
@@ -155,4 +160,5 @@ function timetovote() {
     //  characterList.push(newCharacter);
     // } else {
     //     alert('please select one image file for this to work')    
+
 
