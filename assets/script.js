@@ -9,7 +9,7 @@ var startBtn = document.querySelector("#startBtn");
 var genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US';
 // var APIKey = 'd4ee677d19edc2e96425eb11e4079011';
 // var hide = document.getElementById('#hide');
-var posterURl = 'https://api.themoviedb.org/3/configuration?api_key=d4ee677d19edc2e96425eb11e4079011';
+var posterURl = 'https://api.themoviedb.org/3/discover/movie?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US&include_adult=false&include_video=false';
 var drop = document.getElementById('myDropdown');
 var dropbtn = document.querySelector('.dropbtn');
 var selectedgenre = document.querySelector('#genre');
@@ -75,9 +75,31 @@ function displayoption() {
   })
   // if(genre === genreOfChoice ){
   .then(function (data) {
-    for (var i = 0; i < data.length; i++) {
-      console.log(data[i]);
+    console.log(data);
+    for (var i = 0; i = data.results[i].genre_id; i++) {
+        var poster = data.results[i].genre_id;
 
+        console.log(poster)
+      
+
+        if( poster === genrechoice){
+          fetch(posterURl)
+          .then(function (response) {
+            return response.json();
+          })
+          .then(function (data){
+            console
+            for (var i = 0; i = data.results[i].posterpath; i++){
+              var posterimage = data.results[i].posterpath;
+              console.log(posterimage)
+            }
+            
+
+          })
+
+
+        
+        }    
     }
   })
 
@@ -125,10 +147,10 @@ doNotWatchBtn.addEventListener("click", adddoNotWatch);
 function timetovote() {
  
   displayoption();
- 
+
 
 };
-
+timetovote()
 
 
 
