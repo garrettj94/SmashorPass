@@ -12,36 +12,31 @@ var genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19
 var posterURl = 'https://api.themoviedb.org/3/configuration?api_key=d4ee677d19edc2e96425eb11e4079011';
 var drop = document.getElementById('myDropdown');
 var dropbtn = document.querySelector('.dropbtn');
-// var genreOfChoice = select.options[select.selectedIndex].value;
-// console.log(value)
+var genrechoice = "";
+
 
 
 
 function genre (event) {
   event.preventDefault();
-  //look up how to undo an element = remove child 
   fetch(genreUrl)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data.genres)
       for (var i = 0; i < data.genres.length; i++) {
-        console.log(data.genres[i])
-       
-        // "if drop.containt getellid my drop down .remove"
-
-        
-
         var genre = data.genres[i].name;
+        console.log(genre);
 
 
-        // link.textContent = hello;
         var linkEl = document.createElement('a');
         
-        // link.href = data.html_url;
         if(drop.children.length < data.genres.length){
-          linkEl.append(genre);
+          linkEl.textContent = genre;
+          linkEl.addEventListener("click", function(event){
+            event.preventDefault();
+            genrechoice = event.target.textContent;
+          });
           drop.appendChild(linkEl);
         }
       }
