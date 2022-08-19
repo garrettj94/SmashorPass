@@ -2,14 +2,17 @@ var watchVariable = 0;
 var doNotWatchVariable = 0;
 var watchBtn = document.getElementById("#watchBtn");
 var doNotWatchBtn = document.getElementById("#dontWatchBtn");
-var dropDownBtn = document.querySelector(".dropBtn");
+var dropDownBtn = document.querySelector("#dropBtn");
 var posterImgEl = document.getElementById("#posterImg");
 var mIndex = 0
 var startBtn = document.querySelector("#startBtn");
 var genreUrl = 'https://api.themoviedb.org/3/genre/movie/list?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US';
 // var APIKey = 'd4ee677d19edc2e96425eb11e4079011';
 // var hide = document.getElementById('#hide');
-var posterURl = 'https://api.themoviedb.org/3/configuration?api_key=d4ee677d19edc2e96425eb11e4079011'
+var posterURl = 'https://api.themoviedb.org/3/configuration?api_key=d4ee677d19edc2e96425eb11e4079011';
+var drop = document.getElementById('myDropdown');
+var dropbtn = document.querySelector('.dropbtn');
+
 
 function poster() {
   fetch(posterURl)
@@ -24,7 +27,8 @@ function poster() {
 poster();
 
 
-function genre() {
+function genre(event) {
+  event.preventDefault();
   //look up how to undo an element = remove child 
   fetch(genreUrl)
     .then(function (response) {
@@ -37,24 +41,32 @@ function genre() {
        
         // "if drop.containt getellid my drop down .remove"
 
+        
+
         var genre = data.genres[i].name;
-        var hello = "hello world"
-        var link = document.createElement('a');
-        var drop = document.getElementById('myDropdown')
+
+
         // link.textContent = hello;
+        var linkEl = document.createElement('a');
         
         // link.href = data.html_url;
-        link.append(genre);
-        drop.appendChild(link);
-        
-
-
-
+        if(drop.children.length < data.genres.length){
+          linkEl.append(genre);
+          drop.appendChild(linkEl);
+        }
       }
     }) 
 
-  document.getElementById("myDropdown").classList.toggle("show");
+ drop.classList.toggle("show");
   window.onclick = function (event) {
+    // if(drop.hasChildNodes() = true){
+    //     //  for(var i = 0; i < drop.children.length; i++){
+    //     //    drop.removeChild(drop.children[i]);
+    //     //  }
+    //     while(drop.firstChild == true){
+    //       drop.removeChild(drop.firstChild);
+    //     }
+    // }
     event.preventDefault();
     if (!event.target.matches('.dropbtn')) {
       var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -75,12 +87,13 @@ function genre() {
 }
 
 
+
+dropbtn.addEventListener("click", genre);
 startBtn.addEventListener("click", function (event) {
   event.preventDefault();
   timetovote();
   document.getElementById("hide").style.display = "block";
   console.log("working")
-  document.getElementById("infoBox").style.display = "none";
 });
 
 
@@ -151,3 +164,4 @@ function timetovote() {
     //  characterList.push(newCharacter);
     // } else {
     //     alert('please select one image file for this to work')    
+
