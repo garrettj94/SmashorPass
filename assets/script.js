@@ -93,27 +93,29 @@ watchBtn.addEventListener("click", console.log("working"))
 
 
 
+function addwatch() {
+  watchVariable++;
+  nextOption();
+};
+
+function adddoNotWatch() {
+  doNotWatchVariable++;
+  nextOption();
+};
+
+
+watchBtn.addEventListener("click", addwatch);
+doNotWatchBtn.addEventListener("click", adddoNotWatch);
 
 function timetovote() {
  
   displayoption();
-
-  function addwatch() {
-    
-    watchVariable++;
-    nextOption();
-  };
+  // addwatch()
+  // adddoNotWatch()
+ 
 
 
-  function addwatch() {
-    doNotWatchVariable++;
-    nextOption();
-  };
 
-  function adddoNotWatch() {
-    doNotWatchVariable++;
-    nextOption();
-  };
 
   function displayoption() {
     fetch(posterURl)
@@ -133,8 +135,6 @@ function timetovote() {
 
   };
 
-  // watchBtn.addEventListener("click", addwatch);
-  // doNotWatchBtn.addEventListener("click", adddoNotWatch);
 
 
 };
