@@ -4,7 +4,11 @@ body {
   background-repeat: no-repeat;
   position: relative;
 }
-
+#infoBox {
+  position: relative;
+  top: 130px;
+  left: 30px;
+}
 .dropbtn {
     background-color: #3498DB;
     color: white;
