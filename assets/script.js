@@ -131,9 +131,12 @@ watchBtn.addEventListener("click", console.log("working"))
 
 
 function addwatch() {
-  watchVariable++;
+    watchVariable++;
+    displayQuestion();
+ 
   nextOption();
 };
+
 
 function adddoNotWatch() {
   doNotWatchVariable++;
@@ -154,23 +157,40 @@ timetovote()
 
 
 
-// function nextQuestion() {
-//   if(cIndex != characterList.length - 1) {
-//       cIndex++;
+// function nextption() {
+//   if(watchBtn = "click") {
+    
 //       displayQuestion();
 //   } else {
 //           endGame();
 //   }
 // }
 
-// function endGame(){
+function endGame(){
 
+}
+   
+
+// function nextQuestion() {
+//   // conditional to check if there are more questions
+//   if(qIndex != questionList.length - 1) {
+//       qIndex++;
+//       displayQuestion();
+//   } else {
+//       setTimeout(function () {
+//           endQuiz();
+//       }, 500)
+
+//   }
 // }
 
-// if (fileInput.isDefaultNamespace.length === 1) {
-    //  var newCharacter = Character(fileInput, nameinput, originsinput)
-    //  characterList.push(newCharacter);
-    // } else {
-    //     alert('please select one image file for this to work')    
+// function displayQuestion() {
+//   var currQuestion = questionList[qIndex]; 
+// questionEl.textContent = currQuestion.question; 
+// var possibleAnswers = currQuestion.possibleAns;
+// //answers to be looped through and displayed based on the current question
+// for (var i = 0; i < possibleAnswers.length; i++) {
+//     answerButtons.children[i].textContent = possibleAnswers[i];
+// }
 
-
+// }
