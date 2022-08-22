@@ -17,6 +17,7 @@ var selectedgenre = document.querySelector('#genre');
 var selectedname = document.querySelector('#filmName');
 var genrechoice = "";
 var posterList = []
+var movieName = []
 var posterindex = 0;
 
 
@@ -41,9 +42,9 @@ function genre (event) {
           // linkEl.className = "genrelist-item"
           linkEl.addEventListener("click", function(event){
             event.preventDefault();
-            genrechoice = event.target.textContent.toLowerCase();
+            genrechoice = event.target.textContent.toUpperCase();
             console.log(genrechoice)
-            selectedgenre.append(": ");
+            selectedgenre.append(" ");
             selectedgenre.append(genrechoice);
           });
           drop.appendChild(linkEl);

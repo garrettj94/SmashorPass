@@ -10,22 +10,22 @@
 </head>
 
 <body class="w-6/12 container mx-auto">
-    <div class="font-bold underline text-center text-white text-3xl p-5 rounded-lg mt-5">Welcome to...What do you Want to Watch?</div>
+    <div class="font-bold underline text-center text-white text-3xl p-5 rounded-lg mt-5 border-solid border-4 border-white">Welcome to...What do you Want to Watch?</div>
     <!-- Info Box -->
     <div class="container mx-auto bg-white mt-10 mb-10 rounded-lg" id="infoBox">
 
 
         <div >
-            <div class="p-20">Description: Choose from the below genres to see a list of popular movies in that genre. You will then be gievn a choice to watch or not watch. The app will then compile a list of those that you chose to watch in the future! To begin select from the below dropdown list and then hit start. </div>
+            <div class="p-20 font-bold text-xl">Click the dropdown box below to choose a genre, then press the start button to begin voting on which movies you want to watch, and which ones you don't. </div>
             <div class="dropdown">
-                <button class="dropbtn">Dropdown</button>
+                <button class="dropbtn">Genres</button>
                 <div id="myDropdown" class="dropdown-content">
                     <!-- <a href="#"></a> -->
                 </div>
             </div>
         </div>
         <div class="buttons grid">
-            <button class="border-solid border-2 rounded-md bg-black text-white place-content-center"
+            <button class="border-solid border-2 rounded-md bg-black text-white place-content-center text-xl"
                 id="startBtn">Start</button>
         </div>
     </div>
@@ -34,14 +34,14 @@
     <div class="bg-white rounded-lg mt-10" id="hide">
 
         <header>
-            <p class="border-solid font-bold border-4 bg-grey-500 text-center" id="genre"></p>
+            <p class="border-solid font-bold border-4 bg-grey-500 text-center text-3xl" id="genre"></p>
         </header>
         <section>
-            <div class="p-3">
-                <img src="" alt="Poster image" class="text-center" id="posterImg"></img>
+            <div class="p-3 grid">
+                <img src="" alt="Poster image" class="text-center justify-items-center" id="posterImg"></img>
             </div>
             <div class="p-3">
-                <p class="text-center" id="filmName">Name</p>
+                <p class="text-center" id="filmName"></p>
             </div>
         </section>
         <footer>
