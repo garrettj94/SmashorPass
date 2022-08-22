@@ -13,9 +13,10 @@ var posterURl = 'https://api.themoviedb.org/3/discover/movie?api_key=d4ee677d19e
 var drop = document.getElementById('myDropdown');
 var dropbtn = document.querySelector('.dropbtn');
 var selectedgenre = document.querySelector('#genre');
-var selectedposter = document.querySelector('#posterImg');
+// var selectedposter = document.querySelector('#posterImg');
 var selectedname = document.querySelector('#filmName');
 var genrechoice = "";
+var posterList = []
 
 
 
@@ -69,18 +70,21 @@ function genre (event) {
   }
 }
 function displayoption() {
-  fetch(posterURl)
+  fetch(`https://api.themoviedb.org/3/discover/movie?api_key=d4ee677d19edc2e96425eb11e4079011&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genrechoice}`)
   .then(function (response) {
     return response.json();
   })
   // if(genre === genreOfChoice ){
   .then(function (data) {
     console.log(data);
-    for (var i = 0; i = data.results[i].genre_id; i++) {
-        var poster = data.results[i].genre_id;
-
+    for (var i = 0; i < data.results.length; i++) {
+        var poster = "https://www.themoviedb.org/t/p/w220_and_h330_face" + data.results[i].poster_path;
         console.log(poster)
       
+        posterImgEl.setAttribute("src", poster)
+
+        posterList.push(poster)
+        console.log(posterList)
 
         if( poster === genrechoice){
           fetch(posterURl)
@@ -107,10 +111,10 @@ function displayoption() {
 
 
 
-
 dropbtn.addEventListener("click", genre);
 startBtn.addEventListener("click", function (event) {
   event.preventDefault();
+  console.log(genrechoice)
   timetovote();
   document.getElementById("hide").style.display = "block";
   document.getElementById("infoBox").style.display = "none";
