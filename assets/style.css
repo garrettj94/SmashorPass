@@ -74,3 +74,9 @@ body {
     border-color: black;
     border-style: solid;
   }
+
+  #posterImg {
+    position: relative;
+    left: 270px;
+    
+  }
