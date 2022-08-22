@@ -194,3 +194,40 @@ function endGame(){
 // }
 
 // }
+
+
+
+
+$('#hide').focus(function(){
+  var full = $("#posterImg").has("img").length ? true : false;
+  if(full == false){
+    //  $('#poster').empty();
+  }
+  console.log(full)
+});
+var getPoster = function(){
+    var film = $('#hide').val();
+     if(film == ''){
+        $('#posterImg').html('<div class="alert"><strong>Oops!</strong> Try adding something into the search field.</div>');
+     } else {
+        $('#posterImg').html('<div class="alert"><strong>Loading...</strong></div>');
+        $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=d4ee677d19edc2e96425eb11e4079011=" + film + "&callback=?", function(json) {
+           if (json != "Nothing found."){
+console.log(json);
+                 $('#posterImg').html('<p>Your search found: <strong>' + json.results[0].title + '</strong></p><img src=\"http://image.tmdb.org/t/p/w500/' + json.results[0].poster_path + '\" class=\"img-responsive\" >');
+              } else {
+                 $.getJSON("https://api.themoviedb.org/3/search/movie?api_key=d4ee677d19edc2e96425eb11e4079011=goonies&callback=?", function(json) {
+                   console.log(json);
+                    $('#posterImg').html('<div class="alert"><p>We\'re afraid nothing was found for that search.</p></div><p>Perhaps you were looking for The Goonies?</p><img id="thePoster" src="http://image.tmdb.org/t/p/w500/' + json[0].poster_path + ' class="img-responsive" />');
+                 });
+              }
+         });
+      }
+    return false;
+}
+$('#startBtn').click(getPoster);
+// $('#term').keyup(function(event){
+//    if(event.keyCode == 13){
+//        getPoster();
+//    }
+// });
